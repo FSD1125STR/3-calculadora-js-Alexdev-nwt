@@ -1,0 +1,110 @@
+:root {
+    --color-bg-uno: #f5e6c8;
+    --color-bg-dos: #f0d9b5;
+    --color-calculadora: #f3e2c7;
+    --color-botones: #f6e7cf;
+    --color-operadores: #f2b56b;
+    --color-igual-uno: #f7a531;
+    --color-igual-dos: #f28c00;
+    --color-limpiar: #e8cfa8;
+    --color-texto: #2d2d2d;
+    --sombra-suave: 0 1rem 2.5rem rgba(0, 0, 0, 0.10);
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    background: linear-gradient(180deg, var(--color-bg-uno), var(--color-bg-dos));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.calculadora {
+    background-color: var(--color-calculadora);
+    box-shadow: var(--sombra-suave);
+    border-radius: 2rem;
+    width: 33rem;
+}
+
+.calculadora__resultado {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    align-items: center;
+    border-bottom: .3rem solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.calculadora__resultado span {
+    font-size: 6rem;
+}
+
+.calculadora__botones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.calculadora__botones button {
+    width: 6rem;
+    height: 6rem;
+    box-shadow: var(--sombra-suave);
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform .15s;
+}
+
+.calculadora__botones button:active {
+    transform: scale(0.95);
+}
+
+.numeros {
+    background-color: var(--color-botones);
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+.operadores {
+    background-color: var(--color-operadores);
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.limpiar {
+    background-color: var(--color-limpiar);
+    color: var(--color-texto);
+    font-weight: 600;
+}
+
+.igual {
+    background: linear-gradient(180deg, var(--color-igual-uno), var(--color-igual-dos));
+    color: #ffffff;
+    font-weight: 900;
+}
+
+@media (max-width: 480px) {
+    .calculadora {
+        width: 90%;
+    }
+    .calculadora__resultado span {
+        font-size: 5rem;
+    }
+    .calculadora__botones button {
+        height: 5.5rem;
+        font-size: 1.8rem;
+        width: unset;
+    }
+}
